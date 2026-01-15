@@ -23,7 +23,7 @@ const userRegister = catchAsync(async (req, res, next) => {
     ...req.body,
     userImage: req?.file?.path,
   };
-  console.log(payload);
+
   const result = await authServices.userRegister(payload);
   sendResponse(res, {
     success: true,
