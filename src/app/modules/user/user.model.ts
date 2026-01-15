@@ -18,7 +18,7 @@ const userSchema = new Schema<IUser>(
       },
       default: IRole.customer,
     },
-    isVerified: { type: Boolean, default: false },
+    isVerified: { type: Boolean, default: true },
   },
   { timestamps: true, versionKey: false }
 );
