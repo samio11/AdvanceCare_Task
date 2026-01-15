@@ -16,4 +16,27 @@ const createProduct = catchAsync(async (req, res, next) => {
   });
 });
 
-export const productController = { createProduct };
+const getAllProduct = catchAsync(async (req, res, next) => {
+  const query = req?.query;
+  const result = await productServices.getAllProduct(
+    query as Record<string, string>
+  );
+  sendResponse(res, {
+    success: true,
+    message: "Product Getted Done",
+    statusCode: 200,
+    data: result,
+  });
+});
+const getAProduct = catchAsync(async (req, res, next) => {
+  const { productId } = req?.params;
+  const result = await productServices.getAProduct(productId as string);
+  sendResponse(res, {
+    success: true,
+    message: "Product Getted Done",
+    statusCode: 200,
+    data: result,
+  });
+});
+
+export const productController = { createProduct, getAllProduct, getAProduct };
