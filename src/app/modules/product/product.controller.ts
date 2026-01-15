@@ -38,5 +38,35 @@ const getAProduct = catchAsync(async (req, res, next) => {
     data: result,
   });
 });
+const updateAProduct = catchAsync(async (req, res, next) => {
+  const { productId } = req?.params;
+  const payload = req?.body;
+  const result = await productServices.updateProductInfo(
+    productId as string,
+    payload
+  );
+  sendResponse(res, {
+    success: true,
+    message: "Product Updated Done",
+    statusCode: 200,
+    data: result,
+  });
+});
+const deleteAProduct = catchAsync(async (req, res, next) => {
+  const { productId } = req?.params;
+  const result = await productServices.deleteProduct(productId as string);
+  sendResponse(res, {
+    success: true,
+    message: "Product Deleted Done",
+    statusCode: 200,
+    data: result,
+  });
+});
 
-export const productController = { createProduct, getAllProduct, getAProduct };
+export const productController = {
+  createProduct,
+  getAllProduct,
+  getAProduct,
+  updateAProduct,
+  deleteAProduct,
+};

@@ -23,10 +23,34 @@ const getAllProduct = async (query: Record<string, string>) => {
   return { data, meta };
 };
 
-const getAProduct = async (userId: string) => {
-  const existProduct = await Product.findById(userId);
+const getAProduct = async (productId: string) => {
+  const existProduct = await Product.findById(productId);
   if (!existProduct) throw new AppError(401, "Product Not Found");
   return existProduct;
 };
 
-export const productServices = { createProduct, getAllProduct, getAProduct };
+const updateProductInfo = async (
+  productId: string,
+  payload: Partial<IProduct>
+) => {
+  const existProduct = await Product.findById(productId);
+  if (!existProduct) throw new AppError(401, "Product Not Found");
+  const result = await Product.findByIdAndUpdate(existProduct?._id, payload, {
+    new: true,
+  });
+  return result;
+};
+const deleteProduct = async (productId: string) => {
+  const existProduct = await Product.findById(productId);
+  if (!existProduct) throw new AppError(401, "Product Not Found");
+  const result = await Product.findByIdAndDelete(existProduct?._id);
+  return result;
+};
+
+export const productServices = {
+  createProduct,
+  getAllProduct,
+  getAProduct,
+  updateProductInfo,
+  deleteProduct,
+};

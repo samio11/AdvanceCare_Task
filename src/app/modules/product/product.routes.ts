@@ -21,4 +21,15 @@ router.post(
 router.get("/", productController.getAllProduct);
 router.get("/single/:productId", productController.getAProduct);
 
+router.put(
+  "/update/:productId",
+  checkAuth([IRole.admin]),
+  productController.updateAProduct
+);
+router.delete(
+  "/delete/:productId",
+  checkAuth([IRole.admin]),
+  productController.deleteAProduct
+);
+
 export const productRouter = router;
