@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.IRole = void 0;
+var IRole;
+(function (IRole) {
+    IRole["customer"] = "customer";
+    IRole["admin"] = "admin";
+})(IRole = exports.IRole || (exports.IRole = {}));
