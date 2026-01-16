@@ -1,0 +1,439 @@
+{
+  "info": {
+    "_postman_id": "84b611aa-988b-4e4b-a139-b422fb4adb6c",
+    "name": "AdvanceCare-Task",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39758820"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "data",
+                  "value": "{\n  \"name\": \"Samio Hasan\",\n  \"email\": \"samiohasan6@gmail.com\",\n  \"password\": \"Samio@123\",\n  \"role\": \"admin\",\n  \"phoneNumber\": \"01709801305\",\n  \"address\": \"Uttara, Dhaka\"\n}",
+                  "type": "text",
+                  "uuid": "542c04d9-f44f-427c-889b-e0495ae5dd95"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "06aed1fb-8f8f-4e71-91bd-4b2124723570",
+                  "src": "/E:/samio_prof_1.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/auth/register",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"samiohasan6@gmail.com\",\r\n    \"password\":\"Samio@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/auth/login",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/auth/logout",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get All User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/user",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get A User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/user/get-single",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "user",
+                "get-single"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Samio Hasan\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/user/update",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "user",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Block User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Samio Hasan\"\r\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/user/block/69693434a8212ea3544b0ba0",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "user",
+                "block",
+                "69693434a8212ea3544b0ba0"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UnBLock User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Samio Hasan\"\r\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/user/un-block/69693434a8212ea3544b0ba0",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "user",
+                "un-block",
+                "69693434a8212ea3544b0ba0"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "data",
+                  "value": "{\n  \"name\": \"Redragon K552 Mechanical Keyboard\",\n  \"price\": 4500,\n  \"description\": \"Compact mechanical keyboard with blue switches, metal body, and RGB backlighting.\",\n  \"stock\": 40\n}\n",
+                  "type": "text",
+                  "uuid": "3de086ac-8bb6-4ae7-a15d-55c3b6385af2"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "uuid": "d5a2254a-d74c-4d82-9572-442d79674c31",
+                  "src": "/C:/Users/samio/Downloads/s-l1200.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/product/create-product",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "product",
+                "create-product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Product",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Samio Hasan\"\r\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/product",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get A Product",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Samio Hasan\"\r\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/product/single/69693f677d0c85e51c2f188c",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "product",
+                "single",
+                "69693f677d0c85e51c2f188c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n      \"name\": \"Samsung Galaxy A55\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/product/update/69693fc37d0c85e51c2f188f",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "product",
+                "update",
+                "69693fc37d0c85e51c2f188f"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n      \"name\": \"Samsung Galaxy A55\"\r\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/product/delete/69693fc37d0c85e51c2f188f",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "product",
+                "delete",
+                "69693fc37d0c85e51c2f188f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "item": [
+        {
+          "name": "Create Payment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"product\": \"696940167d0c85e51c2f1892\",\r\n  \"user\": \"69693434a8212ea3544b0ba0\",\r\n  \"quantity\": 1\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/payment/create",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "payment",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Payment",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"product\": \"696940167d0c85e51c2f1892\",\r\n  \"user\": \"69693434a8212ea3544b0ba0\",\r\n  \"quantity\": 1\r\n}\r\n"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/payment",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "payment"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": ""
+    }
+  ]
+}
