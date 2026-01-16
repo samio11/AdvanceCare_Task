@@ -48,9 +48,23 @@ const canceledPayment = catchAsync(async (req, res, next) => {
   }
 });
 
+const getAllPayment = catchAsync(async (req, res, next) => {
+  const query = req?.query;
+  const result = await paymentServices.getAllPayment(
+    query as Record<string, string>
+  );
+  sendResponse(res, {
+    success: true,
+    statusCode: 200,
+    message: "Getting All Payment Data",
+    data: result,
+  });
+});
+
 export const paymentController = {
   initPayment,
   successfulPayment,
   failPayment,
   canceledPayment,
+  getAllPayment,
 };

@@ -13,5 +13,6 @@ routes.post(
 routes.post("/success", paymentController.successfulPayment);
 routes.post("/fail", paymentController.failPayment);
 routes.post("/cancel", paymentController.canceledPayment);
+routes.get("/", checkAuth([IRole.admin]), paymentController.getAllPayment);
 
 export const paymentRoutes = routes;

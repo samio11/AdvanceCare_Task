@@ -1,9 +1,11 @@
 import { AppError } from "../../errors/AppError";
 import { generateTransectionId } from "../../utils/generateTransectionId";
+import { QueryBuilder } from "../../utils/QueryBuilder";
 import { IProduct } from "../product/product.interface";
 import { Product } from "../product/product.model";
 import { ISSLCommerz } from "../sslCommerz/sslCommerz.interface";
-import { SSLService } from "../sslCommerz/sslCOmmerz.services";
+import { SSLService } from "../sslCommerz/sslCommerz.services";
+
 import { User } from "../user/user.model";
 import { IPayment, IPAYMENT_STATUS } from "./payment.interface";
 import { Payment } from "./payment.model";
@@ -126,9 +128,20 @@ const cancelPayment = async (query: Record<string, string>) => {
   }
 };
 
+const getAllPayment = async (query: Record<string, string>) => {
+  const productQuery = new QueryBuilder(Payment.find(), query);
+  const productData = productQuery.filter().sort().paginate().fields();
+  const [data, meta] = await Promise.all([
+    await productData.build(),
+    await productData.getMeta(),
+  ]);
+  return { data, meta };
+};
+
 export const paymentServices = {
   initPayment,
   successPayment,
   failPayment,
   cancelPayment,
+  getAllPayment,
 };
